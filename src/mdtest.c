@@ -1902,7 +1902,7 @@ void md_validate_tests_rank0() {
 void md_validate_tests() {
     if (!o.create_only && ! o.stat_only && ! o.read_only && !o.remove_only && !o.rename_dirs) {
         o.create_only = o.stat_only = o.read_only = o.remove_only = o.rename_dirs = 1;
-        VERBOSE(1,-1,"main: Setting create/stat/read/remove_only to True" );
+        VERBOSE(1,-1,"main: Setting create/stat/read/rename/remove_only to True" );
     }
 
     /* if dirs_only and files_only were both left unset, set both now */
