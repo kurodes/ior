@@ -108,7 +108,8 @@ option).
 Only perform the stat phase of the tests.
 .TP
 .I "-U"
-Enable the directory rename phase. Use this option without
+Enable the directory rename phase. This can be combined with other phase flags.
+To run rename only, use it without
 .I "-C"
 ,
 .I "-T"
@@ -117,7 +118,7 @@ Enable the directory rename phase. Use this option without
 ,
 or
 .I "-r"
-to run rename only after a previous create phase has populated the test tree.
+after a previous create phase has populated the test tree.
 .TP
 .I "-u"
 Create a unique working directory for each task
