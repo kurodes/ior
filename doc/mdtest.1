@@ -9,7 +9,7 @@ mdtest \- test file system metadata performance
 is a file system metadata performance test designed to run
 in a cluster MPI environment against parallel file systems.
 .PP
-In each iteration of the test, each MPI task creates, stats, and removes
+In each iteration of the test, each MPI task creates, stats, renames, and removes
 the specified number of directories and/or files and measures the performance
 in ops/second.  After all the iterations complete, the maximum, minimum,
 mean ops/sec and the std. deviation are reported for each operation.
@@ -107,6 +107,19 @@ option).
 .I "-T"
 Only perform the stat phase of the tests.
 .TP
+.I "-U"
+Enable the directory rename phase. This can be combined with other phase flags.
+To run rename only, use it without
+.I "-C"
+,
+.I "-T"
+,
+.I "-E"
+,
+or
+.I "-r"
+after a previous create phase has populated the test tree.
+.TP
 .I "-u"
 Create a unique working directory for each task
 (presumes
@@ -201,6 +214,12 @@ time to remove tree: 0.000940 sec
 tree removal rate: 15960.060883 ops/sec
 
 -- finished at 11/23/2009 09:09:23 --
+.fi
+.SS "Example 3"
+Run only the directory rename phase on a test tree that was created in a
+previous run.
+.nf
+$ mpirun -n 2 ./mdtest -d /tmp/z -n 100 -i 1 -D -U
 .fi
 
 .SH "SEE ALSO"
